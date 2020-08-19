@@ -18,7 +18,7 @@ scoreboard objectives remove init_bool
 scoreboard objectives remove Heat
 
 # display message
-say MagmaCubeLava disabled
+say datapack: MagmaCubeLava disabled
 
 # disable Datapack
 datapack disable "file/MC_magmacubelava"

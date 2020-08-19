@@ -17,7 +17,7 @@
 function magmacubelava:scripts/install
 
 # init message
-say MagmaCubeLava initialized
+say datapack: MagmaCubeLava enabled
 
 # init flag set
 scoreboard players set $init init_bool 1
