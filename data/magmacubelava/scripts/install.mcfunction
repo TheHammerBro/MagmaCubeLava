@@ -14,4 +14,4 @@
 ##############################################################################################
 
 # create scoreboard objectives
-scoreboard objectives add Heat dummy "Heat"
+scoreboard objectives add magcubelava_heat dummy "Magma Cube Heat"

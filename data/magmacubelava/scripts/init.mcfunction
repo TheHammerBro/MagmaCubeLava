@@ -17,7 +17,7 @@
 function magmacubelava:scripts/install
 
 # init message
-say datapack: MagmaCubeLava enabled
+tellraw @a {"text": "MagmaCubeLava enabled\n use - function magmacubelava:scripts/uninstall - to disable", "color": "blue"}
 
 # init flag set
-scoreboard players set $init init_bool 1
+scoreboard players set $init magcubelava_init 1

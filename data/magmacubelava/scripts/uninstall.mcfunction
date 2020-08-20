@@ -14,11 +14,14 @@
 ##############################################################################################
 
 # undo install directives
-scoreboard objectives remove init_bool
-scoreboard objectives remove Heat
+scoreboard objectives remove magcubelava_init
+scoreboard objectives remove magcubelava_heat
+
+#tag @e remove 2hot2handle
+#tag @e remove hot_as_lava
 
 # display message
-say datapack: MagmaCubeLava disabled
+tellraw @a {"text": "MagmaCubeLava disabled\n use datapack enable \"file/MC_magmacubelava\" to enable", "color": "blue"}
 
 # disable Datapack
 datapack disable "file/MC_magmacubelava"

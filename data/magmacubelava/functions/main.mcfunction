@@ -13,40 +13,46 @@
 #                                                                                            #
 ##############################################################################################
 
-
 # initilization
-    scoreboard objectives add init_bool dummy
+    scoreboard objectives add magcubelava_init dummy "Magma Cube Lava Init Boolean"
     execute unless score $init init_bool matches 1 run function magmacubelava:scripts/init
 
 # loop
-    # add give magma_cubes heat score
-    scoreboard players add @e[type=magma_cube] Heat 0
+    # give new magma cubes magcubelava_heat score
+    scoreboard players add @e[type=magma_cube] magcubelava_heat 0
 
-    # size dependant heating (rm get_hotter)
-    execute as @e[nbt={Size: 0},scores={Heat=..1000}] at @s if block ~ ~-.25 ~ magma_block run scoreboard players add @s Heat 1
-    execute as @e[nbt={Size: 1},scores={Heat=..2000}] at @s if block ~ ~-.25 ~ magma_block run scoreboard players add @s Heat 1
-    execute as @e[nbt={Size: 3},scores={Heat=..4000}] at @s if block ~ ~-.25 ~ magma_block run scoreboard players add @s Heat 2
-
-    # tag cubes with enough heat
-    execute as @e[scores={Heat=1000..}] run tag @s add 2hot2handle
+    # heat up
+    execute as @e[type=magma_cube] at @s if block ~ ~-.5 ~ magma_block run function magmacubelava:heatup
 
     # effects for hot cubes
-#    execute as @e[tag=2hot2handle] run function
+    execute as @e[scores={magcubelava_heat=1000..}] at @s run function magmacubelava:hotcubeeffect
+    
+    #convert obsidian
+    execute as @e[scores={magcubelava_heat=1000..}] at @s if block ~ ~-.5 ~ obsidian run function magmacubelava:convert
 
-    # tag hot cubes on obsidian
-    execute as @e[tag=2hot2handle] if block ~ ~-.025 ~ obsidian run tag @s add hot_as_lava
-
-    # convert Obsidian to lava (size dependant)
-    execute as @e[tag=hot_as_lava,nbt={Size: 0}] run fill ~ ~-.25 ~ ~ ~-.25 ~ lava replace obsidian
-    execute as @e[tag=hot_as_lava,nbt={Size: 1}] run fill ~-.25 ~-.25 ~-.25 ~.25 ~-.25 ~.25 lava replace obsidian
-    execute as @e[tag=hot_as_lava,nbt={Size: 3}] run fill ~-.65 ~-.25 ~-.65 ~.65 ~-.25 ~.65 lava replace obsidian
-
-    # remove 1000 Heat and hot_as_lava
-    execute as @e[tag=hot_as_lava] run scoreboard players remove @s Heat 1000
-    execute as @e[tag=hot_as_lava,scores={Heat=..999}] run tag @s remove 2hot2handle
-
-    # conversion effects
-#    execute as @e[tag=hot_as_lava]
-
-    # remove hot_as_lava
-    execute as @e[tag=hot_as_lava] run tag @s remove hot_as_lava
+#    # size dependant heating
+#    execute as @e[nbt={Size: 0},scores={magcubelava_heat=..1000}] at @s if block ~ ~-.25 ~ magma_block run scoreboard players add @s magcubelava_heat 1
+#    execute as @e[nbt={Size: 1},scores={magcubelava_heat=..2000}] at @s if block ~ ~-.25 ~ magma_block run scoreboard players add @s magcubelava_heat 1
+#    execute as @e[nbt={Size: 3},scores={magcubelava_heat=..4000}] at @s if block ~ ~-.25 ~ magma_block run scoreboard players add @s magcubelava_heat 2
+#
+#    # tag cubes with enough heat
+#    execute as @e[scores={magcubelava_heat=1000..}] run tag @s add 2hot2handle
+#
+#    # tag hot cubes on obsidian
+#    execute as @e[tag=2hot2handle] if block ~ ~-.5 ~ obsidian run tag @s add hot_as_lava
+#
+#    # convert Obsidian to lava (size dependant)
+#    execute as @e[tag=hot_as_lava,nbt={Size: 0}] run fill ~-.1 ~-.25 ~-.1 ~.1 ~-.25 ~.1 lava replace obsidian
+#    execute as @e[tag=hot_as_lava,nbt={Size: 1}] run fill ~-.3 ~-.25 ~-.3 ~.3 ~-.25 ~.3 lava replace obsidian
+#    execute as @e[tag=hot_as_lava,nbt={Size: 3}] run fill ~-.6 ~-.25 ~-.6 ~.6 ~-.25 ~.6 lava replace obsidian
+#
+#    # remove 1000 heat and hot_as_lava
+#    execute as @e[tag=hot_as_lava] run scoreboard players remove @s magcubelava_heat 1000
+#    execute as @e[tag=hot_as_lava,scores={magcubelava_heat=..999}] run tag @s remove 2hot2handle
+#
+#    # conversion effects
+#    execute as @e[tag=hot_as_lava] at @s run particle soul_fire_flame ~ ~ ~ .1 .1 .1 1 100 normal
+#    execute as @e[tag=hot_as_lava] at @s run playsound block.fire.extinguish block @a ~ ~ ~ 2 1.2
+#
+#    # remove hot_as_lava
+#    execute as @e[tag=hot_as_lava] run tag @s remove hot_as_lava

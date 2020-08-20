@@ -13,7 +13,7 @@
 #                                                                                            #
 ##############################################################################################
 
-# undo init directives
-scoreboard objectives remove magcubelava_init
-scoreboard objectives remove magcubelava_heat
-say MagmaCubeLava Reloaded
+# size dependant heating
+scoreboard players add @s[nbt={Size: 0},scores={magcubelava_heat=..1000}] magcubelava_heat 1
+scoreboard players add @s[nbt={Size: 1},scores={magcubelava_heat=..2000}] magcubelava_heat 1
+scoreboard players add @s[nbt={Size: 3},scores={magcubelava_heat=..4000}] magcubelava_heat 2
