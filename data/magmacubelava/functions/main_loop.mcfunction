@@ -13,8 +13,14 @@
 #                                                                                            #
 ##############################################################################################
 
-# undo init directives
-scoreboard objectives remove magcubelava_init
-scoreboard objectives remove magcubelava_loop
-scoreboard objectives remove magcubelava_heat
-say MagmaCubeLava Reloaded
+    # heat up
+    execute as @e[type=magma_cube] at @s if block ~ ~-.5 ~ magma_block run function magmacubelava:heatup
+
+    # effects for hot cubes
+    execute as @e[scores={magcubelava_heat=1000..}] at @s run function magmacubelava:hotcubeeffect
+    
+    # convert obsidian
+    execute as @e[scores={magcubelava_heat=1000..}] at @s if block ~ ~-.5 ~ obsidian run function magmacubelava:convert
+
+    # reset loop
+    scoreboard players set $MCL_init magcubelava_init 0
