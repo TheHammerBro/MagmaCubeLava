@@ -13,7 +13,12 @@
 #                                                                                            #
 ##############################################################################################
 
-# undo init directives
+# undo install directives
 scoreboard objectives remove magcubelava_init
 scoreboard objectives remove magcubelava_heat
-say MagmaCubeLava Reloaded
+
+# display message
+tellraw @a {"text": "MagmaCubeLava disabled\n use datapack enable \"file/MC_magmacubelava\" to enable", "color": "blue"}
+
+# disable Datapack
+datapack disable "file/MC_magmacubelava"

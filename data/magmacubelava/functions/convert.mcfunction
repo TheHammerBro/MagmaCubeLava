@@ -13,5 +13,14 @@
 #                                                                                            #
 ##############################################################################################
 
-# create scoreboard objectives
-scoreboard objectives add Heat dummy "Heat"
+# convert Obsidian to lava (size dependant)
+execute as @s[nbt={Size: 0}] run fill ~-.1 ~-.25 ~-.1 ~.1 ~-.25 ~.1 lava replace obsidian
+execute as @s[nbt={Size: 1}] run fill ~-.3 ~-.25 ~-.3 ~.3 ~-.25 ~.3 lava replace obsidian
+execute as @s[nbt={Size: 3}] run fill ~-.6 ~-.25 ~-.6 ~.6 ~-.25 ~.6 lava replace obsidian
+
+# remove 1000 heat
+scoreboard players remove @s magcubelava_heat 1000
+
+# conversion effects
+particle soul_fire_flame ~ ~ ~ .1 .1 .1 .5 100 normal
+playsound block.fire.extinguish block @a ~ ~-.5 ~ 2 1.2

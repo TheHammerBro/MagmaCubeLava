@@ -13,7 +13,11 @@
 #                                                                                            #
 ##############################################################################################
 
-# undo init directives
-scoreboard objectives remove magcubelava_init
-scoreboard objectives remove magcubelava_heat
-say MagmaCubeLava Reloaded
+# install scoreboards
+function magmacubelava:scripts/install
+
+# init message
+tellraw @a {"text": "MagmaCubeLava enabled\n use - function magmacubelava:scripts/uninstall - to disable", "color": "blue"}
+
+# init flag set
+scoreboard players set $MCL_init magcubelava_init 1

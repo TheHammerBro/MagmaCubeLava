@@ -13,11 +13,11 @@
 #                                                                                            #
 ##############################################################################################
 
-# install scoreboards
-function magmacubelava:scripts/install
+# recursively creates particle effects as heat builds
+    # effect to displat
+    particle soul_fire_flame ~ ~ ~ .1 .1 .1 .07 1 normal
 
-# init message
-say datapack: MagmaCubeLava enabled
-
-# init flag set
-scoreboard players set $init init_bool 1
+    # recursion
+    scoreboard players remove @s magcubelava_heat 1000
+    execute if score @s magcubelava_heat matches 1000.. run function magmacubelava:hotcubeeffect
+    scoreboard players add @s magcubelava_heat 1000

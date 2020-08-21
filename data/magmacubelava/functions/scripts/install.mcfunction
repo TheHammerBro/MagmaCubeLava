@@ -13,12 +13,5 @@
 #                                                                                            #
 ##############################################################################################
 
-# undo install directives
-scoreboard objectives remove init_bool
-scoreboard objectives remove Heat
-
-# display message
-say datapack: MagmaCubeLava disabled
-
-# disable Datapack
-datapack disable "file/MC_magmacubelava"
+# create scoreboard objectives
+scoreboard objectives add magcubelava_heat dummy "Magma Cube Heat"
