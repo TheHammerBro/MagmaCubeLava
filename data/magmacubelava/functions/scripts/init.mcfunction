@@ -13,15 +13,11 @@
 #                                                                                            #
 ##############################################################################################
 
-# undo install directives
-scoreboard objectives remove magcubelava_init
-scoreboard objectives remove magcubelava_heat
+# install scoreboards
+function magmacubelava:scripts/install
 
-#tag @e remove 2hot2handle
-#tag @e remove hot_as_lava
+# init message
+tellraw @a {"text": "MagmaCubeLava enabled\n use - function magmacubelava:scripts/uninstall - to disable", "color": "blue"}
 
-# display message
-tellraw @a {"text": "MagmaCubeLava disabled\n use datapack enable \"file/MC_magmacubelava\" to enable", "color": "blue"}
-
-# disable Datapack
-datapack disable "file/MC_magmacubelava"
+# init flag set
+scoreboard players set $MCL_init magcubelava_init 1
