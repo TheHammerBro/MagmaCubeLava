@@ -14,6 +14,6 @@
 ##############################################################################################
 
 # size dependant heating
-scoreboard players add @s[nbt={Size: 0},scores={magcubelava_heat=..1000}] magcubelava_heat 1
-scoreboard players add @s[nbt={Size: 1},scores={magcubelava_heat=..2000}] magcubelava_heat 1
-scoreboard players add @s[nbt={Size: 3},scores={magcubelava_heat=..4000}] magcubelava_heat 2
+execute unless score @s[nbt={Size: 0}] magcubelava_heat matches 1001.. run scoreboard players add @s magcubelava_heat 10
+execute unless score @s[nbt={Size: 1}] magcubelava_heat matches 2001.. run scoreboard players add @s magcubelava_heat 15
+execute unless score @s[nbt={Size: 3}] magcubelava_heat matches 4001.. run scoreboard players add @s magcubelava_heat 20

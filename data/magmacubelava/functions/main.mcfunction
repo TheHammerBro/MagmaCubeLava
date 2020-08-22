@@ -18,5 +18,5 @@
     execute unless score $MCL_init magcubelava_init matches 1 run function magmacubelava:scripts/init
 
 # loop
-    execute unless score $MCL_loop magcubelava_loop matches 1 run schedule function magmacubelava:main_loop 10t
-    scoreboard players set $MCL_init magcubelava_init 1
+    execute unless score $MCL_loop magcubelava_loop matches 1 run schedule function magmacubelava:main_loop 10 replace
+    scoreboard players set $MCL_loop magcubelava_loop 1

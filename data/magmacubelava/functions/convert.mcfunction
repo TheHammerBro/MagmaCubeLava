@@ -22,5 +22,5 @@ execute as @s[nbt={Size: 3}] run fill ~-.6 ~-.25 ~-.6 ~.6 ~-.25 ~.6 lava replace
 scoreboard players remove @s magcubelava_heat 1000
 
 # conversion effects
-particle soul_fire_flame ~ ~ ~ .1 .1 .1 .5 100 normal
+particle soul_fire_flame ~ ~ ~ .1 .1 .1 .1 100 normal
 playsound block.fire.extinguish block @a ~ ~-.5 ~ 2 1.2

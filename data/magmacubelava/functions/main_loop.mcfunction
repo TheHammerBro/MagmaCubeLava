@@ -23,4 +23,4 @@
     execute as @e[scores={magcubelava_heat=1000..}] at @s if block ~ ~-.5 ~ obsidian run function magmacubelava:convert
 
     # reset loop
-    scoreboard players set $MCL_init magcubelava_init 0
+    scoreboard players set $MCL_loop magcubelava_loop 0

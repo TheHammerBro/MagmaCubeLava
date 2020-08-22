@@ -15,7 +15,7 @@
 
 # recursively creates particle effects as heat builds
     # effect to displat
-    particle soul_fire_flame ~ ~ ~ .1 .1 .1 .07 1 normal
+    particle soul_fire_flame ~ ~ ~ .1 .1 .1 .1 3 normal
 
     # recursion
     scoreboard players remove @s magcubelava_heat 1000
