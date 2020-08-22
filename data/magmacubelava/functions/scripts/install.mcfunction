@@ -14,4 +14,5 @@
 ##############################################################################################
 
 # create scoreboard objectives
+scoreboard objectives add magcubelava_loop dummy "Magma Cube Lava Loop Boolean"
 scoreboard objectives add magcubelava_heat dummy "Magma Cube Heat"

@@ -15,6 +15,7 @@
 
 # undo install directives
 scoreboard objectives remove magcubelava_init
+scoreboard objectives remove magcubelava_loop
 scoreboard objectives remove magcubelava_heat
 
 # display message
